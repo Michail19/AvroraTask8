@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.template.Coordinates
+Exec=/usr/bin/ru.template.Coordinates
+Name=Coordinates
+Name[ru]=Позиционирование и карты
+
+[X-Application]
+Permissions=Downloads;Internet;Location;PublicDir
+OrganizationName=ru.template
+ApplicationName=Coordinates
+ExecDBus=/usr/bin/ru.template.Coordinates
