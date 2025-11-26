@@ -6,7 +6,12 @@ import QtLocation 5.0
 import "../assets"
 
 Page {
-    NmeaPositionSource { id: positionSource }
+    NmeaPositionSource {
+        id: positionSource
+        updateInterval: 1000
+        nmeaSource: "/usr/share/ru.template.Coordinates/nmea/path.nmea"
+        active: true
+    }
     Map {
         id: map
         anchors.fill: parent
@@ -27,6 +32,13 @@ Page {
            value: positionSource.position.coordinate
            when: positionSource.position.coordinate.isValid
         }
+
+        Footprints {
+            id: footprints
+            visible: positionSource.position.coordinate.isValid
+            coordinate: positionSource.position.coordinate
+            diameter: Math.min(map.width, map.height) / 8
+        }
     }
     Slider {
         id: zoomSlider
@@ -46,12 +58,7 @@ Page {
 
         MapQuickCircle { }
     }
-    Footprints {
-        id: footprints
-        visible: positionSource.position.coordinate.isValid
-        coordinate: positionSource.position.coordinate
-        diameter: Math.min(map.width, map.height) / 8
-    }
 
-    Component.onCompleted: map.addMapItem(footprints)
+
+    //Component.onCompleted: map.addMapItem(footprints)
 }

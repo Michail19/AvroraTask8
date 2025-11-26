@@ -7,7 +7,7 @@ Page {
     NmeaPositionSource {
         id: positionSource
         updateInterval: 1000
-        nmeaSource: "path.nmea"
+        nmeaSource: "/usr/share/ru.template.Coordinates/nmea/path.nmea"
         active: activeSwitch.checked
     }
     // ToDo: make component NmeaPositionSource in assets directory
